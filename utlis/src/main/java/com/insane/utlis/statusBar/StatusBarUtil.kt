@@ -1,4 +1,4 @@
-package com.insane.utlis
+package com.insane.utlis.statusBar
 
 import android.app.Activity
 import android.graphics.Color
@@ -6,17 +6,13 @@ import android.os.Build
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import com.insane.utlis.statusBar.MeiZuStatusBarUtils
-import com.insane.utlis.statusBar.OSUtils
-import com.insane.utlis.statusBar.OppoStatusBarUtils
-import com.insane.utlis.statusBar.SystemBarTintManager
 
 /**
  *Created by 翊宸
  *Data:2020-03-06
  *Describe:
  */
-class StatusBarUtil {
+object StatusBarUtil {
 
     fun init(activity: Activity) {
         init(activity, false)
@@ -61,12 +57,12 @@ class StatusBarUtil {
      */
     private fun setStatusBarDarkTheme(activity: Activity, dark: Boolean): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            return if (OSUtils.isMiui() && !OSUtils.isMIUI7Later()) {
+            return if (OSUtil.isMiui && !OSUtil.isMIUI7Later) {
                 setMiUiUI(activity, dark)
-            } else if (OSUtils.isFlyme()) {
+            } else if (OSUtil.isFlyme) {
                 MeiZuStatusBarUtils.setStatusBarDarkIcon(activity, dark)
                 true
-            } else if (OSUtils.isOppo()) {
+            } else if (OSUtil.isOppo) {
                 OppoStatusBarUtils.setLightStatusBarIcon(activity, dark)
                 true
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

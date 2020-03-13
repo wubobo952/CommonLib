@@ -1,31 +1,32 @@
 package com.insane.utlis.statusBar
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.text.TextUtils
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 /**
- *Created by 翊宸
+ *Created by
  *Data:2020-03-09
  *Describe:
  */
 object OSUtil {
 
-    const val ROM_MIUI = "MIUI"
-    const val ROM_EMUI = "EMUI"
-    const val ROM_FLYME = "FLYME"
-    const val ROM_OPPO = "OPPO"
-    const val ROM_SMARTISAN = "SMARTISAN"
-    const val ROM_VIVO = "VIVO"
-    const val ROM_QIKU = "QIKU"
+    private const val ROM_MIUI = "MIUI"
+    private const val ROM_EMUI = "EMUI"
+    private const val ROM_FLYME = "FLYME"
+    private const val ROM_OPPO = "OPPO"
+    private const val ROM_SMARTISAN = "SMARTISAN"
+    private const val ROM_VIVO = "VIVO"
+    private const val ROM_QIKU = "QIKU"
 
-    private val KEY_VERSION_MIUI = "ro.miui.ui.version.name"
-    private val KEY_VERSION_BUILD = "ro.build.version.incremental"
-    private val KEY_VERSION_EMUI = "ro.build.version.emui"
-    private val KEY_VERSION_OPPO = "ro.build.version.opporom"
-    private val KEY_VERSION_SMARTISAN = "ro.smartisan.version"
-    private val KEY_VERSION_VIVO = "ro.vivo.os.version"
+    private const val KEY_VERSION_MIUI = "ro.miui.ui.version.name"
+    private const val KEY_VERSION_BUILD = "ro.build.version.incremental"
+    private const val KEY_VERSION_EMUI = "ro.build.version.emui"
+    private const val KEY_VERSION_OPPO = "ro.build.version.opporom"
+    private const val KEY_VERSION_SMARTISAN = "ro.smartisan.version"
+    private const val KEY_VERSION_VIVO = "ro.vivo.os.version"
 
     private var sName: String? = null
     private var sVersion: String? = null
@@ -94,6 +95,7 @@ object OSUtil {
             }
         }
 
+    @SuppressLint("DefaultLocale")
     private fun check(rom: String): Boolean {
         if (sName != null) {
             return sName == rom

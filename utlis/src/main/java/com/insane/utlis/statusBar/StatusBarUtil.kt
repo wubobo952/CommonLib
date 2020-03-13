@@ -7,11 +7,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 
-/**
- *Created by 翊宸
- *Data:2020-03-06
- *Describe:
- */
+
 object StatusBarUtil {
 
     fun init(activity: Activity) {
